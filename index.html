@@ -2,533 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <meta name="description" content="Yunhai (Jay) Zhang — Senior Data Science Manager at Nike Greater China. Welcome to my little corner of the internet.">
-    <title>Yunhai Zhang — Welcome</title>
-    <link rel="icon" href="img/profile.jpg" type="image/jpeg">
+    <meta name="viewport"
+    <meta name="description" content="Yunhai Zhang — Senior Data Science Manager at Nike China. Personal site."> content="width=device-width, initial-scale=1.0">
+    <title>Yunhai Zhang | Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ---------- Design tokens (Apple HIG: light by default) ---------- */
         :root {
-            --bg:          #F5F5F7;
-            --surface:     #FFFFFF;
-            --surface-2:   #F2F2F7;
-            --ink:         #1D1D1F;
-            --ink-2:       #424245;
-            --ash:         #6E6E73;
-            --ash-2:       #86868B;
-            --rule:        rgba(0,0,0,.08);
-            --rule-2:      rgba(0,0,0,.16);
-            --accent:      #007AFF;     /* Apple system blue — restrained */
-            --accent-soft: rgba(0,122,255,.10);
-
-            --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-pill: 999px;
-
-            --t-fast: 160ms; --t-mid: 320ms;
-            --spring: cubic-bezier(.22, 1, .36, 1);
-
-            --font:        -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                            "SF Pro Display", "Helvetica Neue", system-ui,
-                            "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            --font-disp:   -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                            "Helvetica Neue", system-ui, sans-serif;
-
-            --shadow-sm:   0 1px 2px rgba(0,0,0,.04), 0 1px 1px rgba(0,0,0,.02);
-            --shadow-md:   0 4px 16px rgba(0,0,0,.06);
-            --shadow-lg:   0 16px 48px rgba(0,0,0,.10);
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #e63946;
+            --text: #333333;
+            --text-light: #666666;
+            --bg: #fafafa;
+            --white: #ffffff;
         }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg:        #000000;
-                --surface:   #1C1C1E;
-                --surface-2:#2C2C2E;
-                --ink:       #F5F5F7;
-                --ink-2:     #D1D1D6;
-                --ash:       #AEAEB2;
-                --ash-2:     #8E8E93;
-                --rule:      rgba(255,255,255,.10);
-                --rule-2:    rgba(255,255,255,.18);
-                --accent-soft: rgba(10,132,255,.18);
-            }
-        }
-
-        /* ---------- Reset ---------- */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-        body {
-            font-family: var(--font);
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--ink);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-        img { display: block; max-width: 100%; height: auto; }
-        a { color: inherit; text-decoration: none; }
-        ul { list-style: none; }
-
-        /* ---------- Nav (translucent, like macOS title bar) ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Noto Serif SC', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        
         nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 14px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(245,245,247,.72);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--rule);
-            transition: background var(--t-fast) var(--spring);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo {
-            font-family: var(--font-disp);
-            font-weight: 700;
-            font-size: 19px;
-            letter-spacing: -0.022em;
-            color: var(--ink);
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .logo-dot {
-            width: 8px; height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-        .nav-links { display: flex; gap: 4px; align-items: center; }
-        .nav-links a {
-            font-size: 13px;
-            font-weight: 400;
-            padding: 6px 12px;
-            border-radius: var(--r-sm);
-            color: var(--ink-2);
-            transition: all var(--t-fast) var(--spring);
-        }
-        .nav-links a:hover { background: var(--surface-2); color: var(--ink); }
-        .nav-links a:active { transform: scale(.96); }
-        .nav-links a.active { color: var(--accent); font-weight: 600; }
-
-        /* ---------- Hero ---------- */
+        .logo { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); }
+        
+        /* Hero Section */
         .hero {
             min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            padding: calc(env(safe-area-inset-top, 0px) + 96px) 5% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            background: var(--bg);
         }
-        .container { width: 100%; max-width: 880px; margin: 0 auto; }
-
-        .avatar-wrap {
-            display: inline-block;
-            margin-bottom: 28px;
-            position: relative;
-        }
-        .avatar {
-            width: 156px; height: 156px;
+        
+        .profile-photo {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .hero-welcome {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 5%;
+            background: var(--white);
+        }
+        
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .about-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+        }
+        
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .hobby-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        
+        /* Photos Grid */
+        .photos-section {
+            padding: 4rem 5%;
+            background: var(--bg);
+        }
+        
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .photo-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
             display: block;
         }
-        .avatar-wrap::after {
-            content: '';
-            position: absolute; inset: -6px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), rgba(0,122,255,0));
-            opacity: 0.18;
-            z-index: -1;
-            filter: blur(20px);
-        }
-
-        .eyebrow {
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--ash);
-            margin-bottom: 18px;
-            display: inline-block;
-        }
-        .eyebrow::before {
-            content: ''; display: inline-block;
-            width: 28px; height: 1px; background: var(--ash-2);
-            vertical-align: middle; margin-right: 10px; opacity: 0.6;
-        }
-        .eyebrow::after {
-            content: ''; display: inline-block;
-            width: 28px; height: 1px; background: var(--ash-2);
-            vertical-align: middle; margin-left: 10px; opacity: 0.6;
-        }
-
-        h1.name {
-            font-family: var(--font-disp);
-            font-size: clamp(40px, 6vw, 64px);
-            font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: -0.035em;
-            color: var(--ink);
-            margin-bottom: 14px;
-        }
-        .name .accent {
-            background: linear-gradient(135deg, var(--accent), #5856D6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .subtitle {
-            font-size: clamp(18px, 2vw, 21px);
-            font-weight: 400;
-            color: var(--ink-2);
-            letter-spacing: -0.01em;
-            margin-bottom: 32px;
-        }
-
-        .welcome {
-            font-size: 17px;
-            line-height: 1.62;
-            color: var(--ash);
-            max-width: 620px;
-            margin: 0 auto 36px;
-        }
-
-        .cta-row {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 12px 22px;
-            border-radius: var(--r-pill);
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: -0.005em;
-            transition: transform var(--t-fast) var(--spring),
-                        background var(--t-fast) var(--spring);
-            cursor: pointer;
-        }
-        .btn--primary {
-            background: var(--ink);
-            color: var(--surface);
-        }
-        .btn--primary:hover { background: #000; }
-        .btn--primary:active { transform: scale(.97); }
-        .btn--ghost {
-            background: var(--surface);
-            color: var(--ink);
-            border: 1px solid var(--rule-2);
-        }
-        .btn--ghost:hover { background: var(--surface-2); }
-        .btn--ghost:active { transform: scale(.97); }
-        .btn svg { width: 14px; height: 14px; }
-
-        /* ---------- Section common ---------- */
-        section.block {
-            padding: 96px 5%;
-            background: var(--surface);
-            border-top: 1px solid var(--rule);
-            border-bottom: 1px solid var(--rule);
-        }
-        section.block.alt { background: var(--bg); border: 0; }
-
-        .section-eyebrow {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ash);
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        .section-title {
-            font-family: var(--font-disp);
-            font-size: clamp(32px, 5vw, 44px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            color: var(--ink);
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        .section-lede {
-            font-size: 18px;
-            color: var(--ash);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 56px;
-            line-height: 1.55;
-        }
-
-        /* ---------- About ---------- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            max-width: 980px;
-            margin: 0 auto;
-        }
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--rule);
-            border-radius: var(--r-lg);
-            padding: 36px 32px;
-            transition: transform var(--t-mid) var(--spring),
-                        box-shadow var(--t-mid) var(--spring);
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        .card h3 {
-            font-family: var(--font-disp);
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: -0.018em;
-            color: var(--ink);
-            margin-bottom: 14px;
-            display: flex; align-items: center; gap: 12px;
-        }
-        .card h3 .ic {
-            width: 36px; height: 36px;
-            display: inline-grid; place-items: center;
-            background: var(--accent-soft);
-            color: var(--accent);
-            border-radius: var(--r-sm);
-            font-size: 18px;
-        }
-        .card p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--ink-2);
-        }
-
-        /* Hobbies */
-        .chips {
-            display: flex; flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 24px;
-        }
-        .chip {
-            padding: 8px 16px;
-            background: var(--surface-2);
-            border-radius: var(--r-pill);
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--ink-2);
-            letter-spacing: -0.005em;
-            transition: background var(--t-fast) var(--spring);
-        }
-        .chip:hover { background: var(--accent-soft); color: var(--accent); }
-
-        /* ---------- Photos grid ---------- */
-        .photos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-            max-width: 980px;
-            margin: 0 auto;
-        }
-        .photo {
-            aspect-ratio: 4 / 3;
-            border-radius: var(--r-md);
-            overflow: hidden;
-            position: relative;
-            background: var(--surface-2);
-            box-shadow: var(--shadow-sm);
-            transition: transform var(--t-mid) var(--spring);
-        }
-        .photo:hover { transform: scale(1.02); box-shadow: var(--shadow-md); }
-        .photo img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .photo-caption {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            padding: 12px 14px;
-            background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0));
-            color: #fff;
-            font-size: 13px; font-weight: 500;
-            letter-spacing: -0.005em;
-            opacity: 0;
-            transition: opacity var(--t-mid) var(--spring);
-        }
-        .photo:hover .photo-caption { opacity: 1; }
-
-        /* ---------- Footer ---------- */
+        
+        /* Footer */
         footer {
-            padding: 56px 5% 96px;
-            background: var(--bg);
+            padding: 3rem 5%;
+            background: var(--secondary);
             text-align: center;
+            color: rgba(255,255,255,0.6);
         }
-        footer .copyright {
-            font-size: 13px;
-            color: var(--ash);
-            letter-spacing: -0.005em;
-        }
-        footer .links {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            margin-bottom: 16px;
-        }
-        footer .links a {
-            font-size: 14px;
-            color: var(--ink-2);
-            transition: color var(--t-fast) var(--spring);
-        }
-        footer .links a:hover { color: var(--accent); }
-
-        /* ---------- Responsive ---------- */
-        @media (max-width: 720px) {
-            .nav-links a { padding: 6px 9px; font-size: 12px; }
-            .about-grid { grid-template-columns: 1fr; }
-            .avatar { width: 124px; height: 124px; }
-            h1.name { font-size: 40px; }
-            .cta-row { flex-direction: column; align-items: stretch; max-width: 280px; margin: 0 auto; }
-            .btn { justify-content: center; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-            html { scroll-behavior: auto; }
+        
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.75rem; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- ===== Nav ===== -->
-    <nav aria-label="Primary">
-        <a href="index.html" class="logo">
-            <span class="logo-dot"></span>
-            Yunhai Zhang
-        </a>
+    <nav>
+        <a href="index.html" class="logo">YZ</a>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="resume.html">Resume</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="https://www.zhangyunhai.com/blog">Blog</a></li>
+            <li><a href="http://www.zhangyunhai.com/blog">Blog</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="index-cn.html">中文</a></li>
         </ul>
     </nav>
 
-    <!-- ===== Hero ===== -->
     <section class="hero">
         <div class="container">
-            <div class="avatar-wrap">
-                <img src="img/profile.jpg" alt="Yunhai Zhang" class="avatar">
-            </div>
-            <span class="eyebrow">Welcome</span>
-            <h1 class="name">Hi, I'm <span class="accent">Yunhai</span></h1>
-            <p class="subtitle">Data Science · Coffee · Travel · Photography</p>
-            <p class="welcome">
-                Welcome to my little corner of the internet. I'm a data scientist
-                working in Shanghai — turning messy numbers into useful stories.
-                When I'm not in a notebook, you'll find me chasing a great cup of
-                coffee, exploring somewhere new, or running along the Bund.
+            <img src="img/profile.jpg" alt="Yunhai Zhang" class="profile-photo">
+            <h1>Hi, I'm <span>Yunhai Zhang</span></h1>
+            <p class="hero-subtitle">Data Science · Coffee Lover · Travel Explorer</p>
+            <p class="hero-welcome">
+                Welcome to my personal space! I'm a data scientist, currently based in Shanghai.
+                Beyond working with data, I also enjoy exploring new places, capturing life through a lens, and of course a great cup of coffee.
+                This is my little corner on the internet — a place to share my story.
             </p>
-            <div class="cta-row">
-                <a class="btn btn--primary" href="resume.html">
-                    See my resume
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-                <a class="btn btn--ghost" href="https://www.zhangyunhai.com/blog">
-                    Read the blog
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- ===== About ===== -->
-    <section class="block">
+    <section class="about">
         <div class="container">
-            <p class="section-eyebrow">About</p>
-            <h2 class="section-title">Where I work, where I've been</h2>
-            <p class="section-lede">
-                I'm currently a Senior Data Science Manager at Nike Greater China. I
-                previously spent a few years in New York — that chapter sharpened how
-                I think about both Eastern and Western cultures.
-            </p>
-            <div class="about-grid">
-                <div class="card">
-                    <h3><span class="ic">◐</span> Today</h3>
-                    <p>
-                        At Nike, I lead teams that turn complex data — customer
-                        behaviour, market pulse, channel performance — into decisions
-                        the business can act on. I like the parts where the numbers
-                        surprise you.
-                    </p>
-                </div>
-                <div class="card">
-                    <h3><span class="ic">→</span> Before</h3>
-                    <p>
-                        New York, for work and for the rhythm. That stretch taught me
-                        how much context matters when you read data — and how much
-                        of it lives outside the spreadsheet.
-                    </p>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    I currently serve as a Senior Data Science Manager at Nike China, where I love turning complex data into actionable insight.
+                </p>
+                <p>
+                    I previously worked in New York City for several years — that experience gave me a unique perspective on both Eastern and Western cultures.
+                </p>
+                
+                <h3>My Hobbies</h3>
+                <div class="hobbies">
+                    <span class="hobby-tag">☕ Coffee</span>
+                    <span class="hobby-tag">📷 Photography</span>
+                    <span class="hobby-tag">✈️ Travel</span>
+                    <span class="hobby-tag">🏃 Running</span>
+                    <span class="hobby-tag">🎮 Gaming</span>
+                    <span class="hobby-tag">🎵 Music</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== Hobbies ===== -->
-    <section class="block alt">
+    <section class="photos-section">
         <div class="container">
-            <p class="section-eyebrow">Off the clock</p>
-            <h2 class="section-title">Things I care about</h2>
-            <p class="section-lede">
-                Six anchors for when the laptop closes.
-            </p>
-            <div class="chips" style="justify-content:center; max-width:780px; margin-left:auto; margin-right:auto;">
-                <span class="chip">☕&nbsp;&nbsp;Coffee</span>
-                <span class="chip">📷&nbsp;&nbsp;Photography</span>
-                <span class="chip">✈️&nbsp;&nbsp;Travel</span>
-                <span class="chip">🏃&nbsp;&nbsp;Running</span>
-                <span class="chip">🎮&nbsp;&nbsp;Games</span>
-                <span class="chip">🎵&nbsp;&nbsp;Music</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== Photos ===== -->
-    <section class="block">
-        <div class="container">
-            <p class="section-eyebrow">Moments</p>
-            <h2 class="section-title">A few captured frames</h2>
-            <p class="section-lede">
-                Travel, daily life, and the in-between.
-            </p>
-            <div class="photos">
-                <div class="photo">
-                    <img src="img/profile.jpg" alt="Frame 1">
-                    <span class="photo-caption">Placeholder</span>
+            <h2 class="section-title">Captured Moments</h2>
+            <div class="photos-grid">
+                <div class="photo-item">
+                    <img src="img/profile.jpg" alt="Photo 1">
                 </div>
-                <div class="photo">
-                    <img src="img/profile.jpg" alt="Frame 2">
-                    <span class="photo-caption">Placeholder</span>
+                <div class="photo-item">
+                    <img src="img/profile.jpg" alt="Photo 2">
                 </div>
-                <div class="photo">
-                    <img src="img/profile.jpg" alt="Frame 3">
-                    <span class="photo-caption">Placeholder</span>
+                <div class="photo-item">
+                    <img src="img/profile.jpg" alt="Photo 3">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== Footer ===== -->
     <footer>
-        <div class="links">
-            <a href="resume.html">Resume</a>
-            <a href="projects.html">Projects</a>
-            <a href="https://www.zhangyunhai.com/blog">Blog</a>
-            <a href="https://www.linkedin.com/in/yunhaizhang">LinkedIn</a>
-        </div>
-        <p class="copyright">© 2026 Yunhai (Jay) Zhang</p>
+        <p>© 2026 Yunhai Zhang | <a href="https://www.linkedin.com/in/yunhaizhang">LinkedIn</a></p>
     </footer>
-
 </body>
 </html>

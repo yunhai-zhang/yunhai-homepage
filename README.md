@@ -1,7 +1,8 @@
 # yunhai-homepage
 
-Personal landing page at <https://zhangyunhai.com/>. Apple HIG-styled,
-lightweight single-file HTML, no build step.
+Personal landing page at <https://zhangyunhai.com/>. Direct 1-to-1
+English translation of `index-cn.html`, keeping the original Chinese
+page's structure, layout and CSS intact. No redesign, no build step.
 
 ## Local preview
 
@@ -19,20 +20,13 @@ python3 -m http.server 8080
 
 Credentials come from `~/.hermes/.env` (`FTP_HOST` / `FTP_USER` / `FTP_PASS`).
 
-## Design notes
-
-- Apple HIG: system font, optical sizes, 96px side margins, spring easing
-- Light by default, dark mode via `prefers-color-scheme`
-- Reduced-motion fallback
-- No external font/CSS dependencies (system fonts only)
-- No JavaScript
-
 ## Structure
 
 ```
 yunhai-homepage/
-├── index.html      # the whole page
+├── index.html      # English version (1:1 translation of index-cn.html)
 ├── README.md
 ├── deploy.sh       # FTP deploy helper
+├── deploy.py       # FTP socket script (uses 'HOST' command for Microsoft IIS)
 └── .gitignore
 ```
